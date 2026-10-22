@@ -1,0 +1,151 @@
+    1   09/ 10/ 26 18:03:48 fdisk /dev/sdb
+    2   09/ 10/ 26 18:03:48 fdisk /dev/sdc
+    3   09/ 10/ 26 18:03:48 dnf install mdadm
+    4   09/ 10/ 26 18:03:48 mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+    5   09/ 10/ 26 18:03:48 madm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+    6   09/ 10/ 26 18:03:48 mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+    7   09/ 10/ 26 18:03:48 mdadm --version
+    8   09/ 10/ 26 18:03:48 dnf install mdadm
+    9   09/ 10/ 26 18:03:48 mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+   10   09/ 10/ 26 18:03:48 mdadm --detail /dev/md0 
+   11   09/ 10/ 26 18:03:48 vgcreate vgraid_1 /dev/md0 
+   12   09/ 10/ 26 18:03:48 vgdisplay
+   13   09/ 10/ 26 18:03:48 lvcreate -n new_var vgraid_1 /dev/md0 
+   14   09/ 10/ 26 18:03:48 pvcreate /dev/md0 
+   15   09/ 10/ 26 18:03:48 pvcreate /dev/md0  -ff
+   16   09/ 10/ 26 18:03:48 pvdisplay 
+   17   09/ 10/ 26 18:03:48 lsblk
+   18   09/ 10/ 26 18:03:48 vgcreate vgraid_1
+   19   09/ 10/ 26 18:03:48 vgcreate vgraid_1 /dev/md0 
+   20   09/ 10/ 26 18:03:48 vgdisplay
+   21   09/ 10/ 26 18:03:48 lvcreate -n new_var -L 8G vgraid_1
+   22   09/ 10/ 26 18:03:48 dnf install cryptsetup -y
+   23   09/ 10/ 26 18:03:48 cryptsetup luksFormat /dev/vgraid_1/new_var 
+   24   09/ 10/ 26 18:03:48 cryptsetup luksOpen /dev/vgraid_1/new_var vgraid-new_var-crypt
+   25   09/ 10/ 26 18:03:48 ls
+   26   09/ 10/ 26 18:03:48 cd /
+   27   09/ 10/ 26 18:03:48 vi crypttab
+   28   09/ 10/ 26 18:03:48 ls
+   29   09/ 10/ 26 18:03:48 vi crypttab
+   30   09/ 10/ 26 18:03:48 ls
+   31   09/ 10/ 26 18:03:48 blkid | grep crypt | tee /etc/crypttab
+   32   09/ 10/ 26 18:03:48 cd /etc/
+   33   09/ 10/ 26 18:03:48 ls
+   34   09/ 10/ 26 18:03:48 cd ..
+   35   09/ 10/ 26 18:03:48 vi crypttab 
+   36   09/ 10/ 26 18:03:48 ls
+   37   09/ 10/ 26 18:03:48 cd /etc/
+   38   09/ 10/ 26 18:03:48 ls
+   39   09/ 10/ 26 18:03:48 vi crypttab 
+   40   09/ 10/ 26 18:03:48 ls
+   41   09/ 10/ 26 18:03:48 nano crypttab 
+   42   09/ 10/ 26 18:03:48 vi crypttab 
+   43   09/ 10/ 26 18:03:48 ls
+   44   09/ 10/ 26 18:03:48 cd ..
+   45   09/ 10/ 26 18:03:48 systemctl status NetworkManager
+   46   09/ 10/ 26 18:03:48 nmtui
+   47   09/ 10/ 26 18:03:48 clear
+   48   09/ 10/ 26 18:03:48 nmcli con add ethernet ifname enp0s8 con-name enp0s8 \ ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1 \ ipv4.method manual
+   49   09/ 10/ 26 18:03:48 nmcli con add type ethernet ifname enp0s8 con-name enp0s8 \ ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1 \ ipv4.method manual
+   50   09/ 10/ 26 18:03:48 nmcli con add type ethernet ifname enp0s8 con-name enp0s8\ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1\ipv4.method manual
+   51   09/ 10/ 26 18:03:48 nmcli con add type ethernet ifname enp0s8 con-name enp0s8 ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1 ipv4.method manual
+   52   09/ 10/ 26 18:03:48 systemctl restart NetworkManager
+   53   09/ 10/ 26 18:03:48 ip a
+   54   09/ 10/ 26 18:03:48 shutdown
+   55   09/ 10/ 26 18:03:48 shutdown now
+   56   09/ 10/ 26 18:03:48 vi /etc/ssh/sshd_config
+   57   09/ 10/ 26 18:03:48 exit
+   58   09/ 10/ 26 18:03:48 history
+   59   09/ 10/ 26 18:03:48 sudo vi /etc/ssh/sshd_config
+   60   09/ 10/ 26 18:03:48 exit
+   61   09/ 10/ 26 18:03:48 usermod -aG wheel rubencf
+   62   09/ 10/ 26 18:03:48 id rubencf
+   63   09/ 10/ 26 18:03:48 su rubencf
+   64   09/ 10/ 26 18:03:48 exit
+   65   09/ 10/ 26 18:04:17 echo "nameserver 8.8.8.8" > /etc/resolv.conf
+   66   09/ 10/ 26 18:04:17 ping -c 3 google.com
+   67   09/ 10/ 26 18:04:35 nmcli con show
+   68   09/ 10/ 26 18:04:45 echo "nameserver 8.8.8.8" > /etc/resolv.conf
+   69   09/ 10/ 26 18:04:50 ping -c 3 google.com
+   70   09/ 10/ 26 18:05:03 ping -c 3 8.8.8.8
+   71   09/ 10/ 26 18:05:06 ping -c 3 google.com
+   72   09/ 10/ 26 18:05:12 cat /etc/resolv.conf
+   73   09/ 10/ 26 18:05:39 ping -c 3 google.com
+   74   09/ 10/ 26 18:05:53 ping -c 3 8.8.8.8
+   75   09/ 10/ 26 18:05:56 getent hosts google.com
+   76   09/ 10/ 26 18:06:08 echo "nameserver 1.1.1.1" > /etc/resolv.conf
+   77   09/ 10/ 26 18:06:08 ping -c 3 google.com
+   78   09/ 10/ 26 18:06:17 echo "nameserver <IP_DNS_de_Windows>" > /etc/resolv.conf
+   79   09/ 10/ 26 18:06:23 ip a
+   80   09/ 10/ 26 18:06:43 echo "nameserver 10.0.2.3" > /etc/resolv.conf
+   81   09/ 10/ 26 18:06:43 ping -c 3 google.com
+   82   09/ 10/ 26 18:06:53 dnf clean all
+   83   09/ 10/ 26 18:06:55 dnf install epel-release
+   84   09/ 10/ 26 18:08:51 dnf install fail2ban
+   85   09/ 10/ 26 18:12:19 systemctl enable --now fail2ban
+   86   09/ 10/ 26 18:12:19 systemctl status fail2ban
+   87   09/ 10/ 26 18:12:34 systemctl enable fail2ban
+   88   09/ 10/ 26 18:13:10 dnf clean all
+   89   09/ 10/ 26 18:13:12 rm -rf /var/cache/dnf/*
+   90   09/ 10/ 26 18:13:12 dnf makecache
+   91   09/ 10/ 26 18:15:38 dnf install fail2ban
+   92   09/ 10/ 26 18:17:13 date -u
+   93   09/ 10/ 26 18:17:13 timedatectl
+   94   09/ 10/ 26 18:17:26 dnf install -y chrony        # skip if already installed
+   95   09/ 10/ 26 18:17:42 systemctl enable --now chronyd
+   96   09/ 10/ 26 18:17:44 chronyc makestep             # force an immediate step to the correct time
+   97   09/ 10/ 26 18:17:45 timedatectl                  # should show "System clock synchronized: yes"
+   98   22/ 10/ 26 16:26:39 timedatectl set-ntp false
+   99   22/ 10/ 26 16:26:41 timedatectl set-time "2026-10-22 12:00:00"   # use the real current UTC/local time
+  100   22/ 10/ 26 12:00:15 timedatectl set-time "2026-10-22 16:26:43"   # use the real current UTC/local time
+  101   22/ 10/ 26 16:26:48 dnf install fail2ban
+  102   22/ 10/ 26 16:32:13 systemctl status fail2ban
+  103   22/ 10/ 26 16:32:18 systemctl enable --now fail2ban
+  104   22/ 10/ 26 16:32:26 systemctl status fail2ban
+  105   22/ 10/ 26 16:32:46 cp -a /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+  106   22/ 10/ 26 16:33:07 sudo vi /etc/fail2ban/jail.local 
+  107   22/ 10/ 26 16:34:19 systemctl restart fail2ban
+  108   22/ 10/ 26 16:34:33 fail2ban-client status sshd
+  109   22/ 10/ 26 16:34:50 systemctl fail2ban status
+  110   22/ 10/ 26 16:35:03 systemctl status fail2ban
+  111   22/ 10/ 26 16:35:10 sudo vi /etc/fail2ban/jail.local 
+  112   22/ 10/ 26 16:35:38 systemctl status fail2ban
+  113   22/ 10/ 26 16:35:44 systemctl restart fail2ban
+  114   22/ 10/ 26 16:35:46 systemctl status fail2ban
+  115   22/ 10/ 26 16:35:55 systemctl enable fail2ban
+  116   22/ 10/ 26 16:35:58 systemctl status fail2ban
+  117   22/ 10/ 26 16:36:22 sudo vi /etc/fail2ban/jail.local 
+  118   22/ 10/ 26 16:36:42 systemctl restart fail2ban
+  119   22/ 10/ 26 16:36:45 systemctl enable fail2ban
+  120   22/ 10/ 26 16:36:49 systemctl status fail2ban
+  121   22/ 10/ 26 16:36:57 fail2ban-client status sshd
+  122   22/ 10/ 26 16:37:23 sudo vi /etc/fail2ban/jail.local 
+  123   22/ 10/ 26 16:38:39 fail2ban-client -t
+  124   22/ 10/ 26 16:38:54 systemctl restart fail2ban
+  125   22/ 10/ 26 16:38:55 systemctl status fail2ban
+  126   22/ 10/ 26 16:38:58 fail2ban-client status sshd
+  127   22/ 10/ 26 16:39:24 fail2ban-client status
+  128   22/ 10/ 26 16:39:37 ls -l /etc/fail2ban/
+  129   22/ 10/ 26 16:39:38 wc -l /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+  130   22/ 10/ 26 16:39:48 grep -n "^\[" /etc/fail2ban/jail.local
+  131   22/ 10/ 26 16:40:28 fail2ban-client -t
+  132   22/ 10/ 26 16:40:29 systemctl restart fail2ban
+  133   22/ 10/ 26 16:40:30 fail2ban-client status
+  134   22/ 10/ 26 16:40:42 systemctl status fail2ban
+  135   22/ 10/ 26 16:40:53 journalctl -u fail2ban --no-pager | tail -20
+  136   22/ 10/ 26 16:41:08 grep -n "^\[" /etc/fail2ban/jail.local
+  137   22/ 10/ 26 16:41:08 ls /etc/fail2ban/jail.d/
+  138   22/ 10/ 26 16:41:08 cat /etc/fail2ban/jail.d/*
+  139   22/ 10/ 26 16:41:40 sudo vi /etc/fail2ban/jail.local 
+  140   22/ 10/ 26 16:42:00 systemctl restart fail2ban
+  141   22/ 10/ 26 16:42:03 systemctl status fail2ban
+  142   22/ 10/ 26 16:42:24 sudo vi /etc/fail2ban/jail.local 
+  143   22/ 10/ 26 16:44:20 vi +276 /etc/fail2ban/jail.local
+  144   22/ 10/ 26 16:44:33 sudo vi /etc/fail2ban/jail.local 
+  145   22/ 10/ 26 16:46:04 systemctl restart fail2ban
+  146   22/ 10/ 26 16:46:08 systemctl status fail2ban
+  147   22/ 10/ 26 16:46:18 fail2ban-client status sshd
+  148   22/ 10/ 26 16:47:30 history
+  149   22/ 10/ 26 16:51:47 export PS1="[ \u@\h:\w ] \D{ %F} \t $ "
+  150   22/ 10/ 26 16:51:56 export HISTTIMEFORMAT=" %d/ %m/ %y %T "
+  151   22/ 10/ 26 16:52:21 history > historyAlma-P2-L2.txt
