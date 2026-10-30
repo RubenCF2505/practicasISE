@@ -1,0 +1,186 @@
+LA SEMANA PASADA TUVIMOS PROBLEMAS AL DESCARGAR DE LOS REPOSITORIOS
+    1  fdisk /dev/sdb
+    2  fdisk /dev/sdc
+    3  dnf install mdadm
+    4  mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+    5  madm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+    6  mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+    7  mdadm --version
+    8  dnf install mdadm
+    9  mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 
+   10  mdadm --detail /dev/md0 
+   11  vgcreate vgraid_1 /dev/md0 
+   12  vgdisplay
+   13  lvcreate -n new_var vgraid_1 /dev/md0 
+   14  pvcreate /dev/md0 
+   15  pvcreate /dev/md0  -ff
+   16  pvdisplay 
+   17  lsblk
+   18  vgcreate vgraid_1
+   19  vgcreate vgraid_1 /dev/md0 
+   20  vgdisplay
+   21  lvcreate -n new_var -L 8G vgraid_1
+   22  dnf install cryptsetup -y
+   23  cryptsetup luksFormat /dev/vgraid_1/new_var 
+   24  cryptsetup luksOpen /dev/vgraid_1/new_var vgraid-new_var-crypt
+   25  ls
+   26  cd /
+   27  vi crypttab
+   28  ls
+   29  vi crypttab
+   30  ls
+   31  blkid | grep crypt | tee /etc/crypttab
+   32  cd /etc/
+   33  ls
+   34  cd ..
+   35  vi crypttab 
+   36  ls
+   37  cd /etc/
+   38  ls
+   39  vi crypttab 
+   40  ls
+   41  nano crypttab 
+   42  vi crypttab 
+   43  ls
+   44  cd ..
+   45  systemctl status NetworkManager
+   46  nmtui
+   47  clear
+   48  nmcli con add ethernet ifname enp0s8 con-name enp0s8 \ ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1 \ ipv4.method manual
+   49  nmcli con add type ethernet ifname enp0s8 con-name enp0s8 \ ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1 \ ipv4.method manual
+   50  nmcli con add type ethernet ifname enp0s8 con-name enp0s8\ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1\ipv4.method manual
+   51  nmcli con add type ethernet ifname enp0s8 con-name enp0s8 ipv4.addresses 192.168.56.110/24 ipv4.gateway 192.168.56.1 ipv4.method manual
+   52  systemctl restart NetworkManager
+   53  ip a
+   54  shutdown
+   55  shutdown now
+   56  vi /etc/ssh/sshd_config
+   57  exit
+   58  history
+   59  sudo vi /etc/ssh/sshd_config
+   60  exit
+   61  usermod -aG wheel rubencf
+   62  id rubencf
+   63  su rubencf
+   64  exit
+   65  vi /etc/ssh/sshd_config
+   66  firewall-cmd --reload
+   67   dnf install php
+   68  php -a
+   69  dnf install mariadb mariadb-server
+   70  systemctl status mariadb
+   71  systemctl enable mariadb
+   72  systemctl start mariadb
+   73  systemctl status mariadb
+   74  [200~mysql –u root~
+   75  mysql –u root
+   76  systemctl status mariadb
+   77  mysql_secure_installation
+   78  mysql –u root -p
+   79  cd /etc/
+   80  ls
+   81  cd httpd/
+   82  ls
+   83  cd conf
+   84  ls
+   85  nano httpd.conf 
+   86  vi httpd.conf 
+   87  clear
+   88  systemctl status httpd
+   89  systemctl restart httpd
+   90  cd /var/www/html/
+   91  ls
+   92  touch index.php
+   93  ls
+   94  dnf install gedit
+   95  cd /etc/
+   96  cd httpd/
+   97  ls
+   98  cd conf
+   99  ls
+  100  gedit httpd.conf 
+  101  vi httpd.conf 
+  102  systemctl restart httpd
+  103  cd /var/www/html/
+  104  ls
+  105  gedit index.php 
+  106  dnf install nano
+  107  nano index.php 
+  108  sudo getsbool 
+  109  sudo getsbool -a
+  110  sudo getsdbool -a
+  111  sudo getsbool -a
+  112  sudo getsebool -a
+  113  sudo setsebool -P httpd_can_network_connect on
+  114  sudo getsebool -a
+  115  systemctl restart sebool
+  116  curl localhost/index.php
+  117  curl localhost:80/index.php
+  118  mysql –u root –p
+  119  cd /var/www/html/
+  120  ls
+  121  nano index.php 
+  122  mysql –u root –p
+  123  CREATE DATABASE myDB;
+  124  mariadb
+  125  curl localhost:80/index.php
+  126  cat index.php 
+  127  touch index.html
+  128  nano index.
+  129  nano index.html 
+  130  cd /etc/
+  131  cd httpd/
+  132  cd conf
+  133  ls
+  134  nano httpd.conf 
+  135  systemctl restart httpd
+  136  cd ..
+  137  cd /var/
+  138  ls
+  139  cd www/
+  140  cd html/
+  141  sudo chown -R rubencf:apache /var/www/html
+  142  sudo chmod -R 775 /var/www/html
+  143  sudo restorecon -Rv /var/www/html
+  144  ls
+  145  mv index.php ..
+  146  cd ..
+  147  mv index.php html/
+  148  ls
+  149  cd html/
+  150  ls
+  151  cd ..
+  152  cd cgi-bin/
+  153  ls
+  154  mv ../html/index.html .
+  155  sudo mv /var/www/cgi-bin/index.html /var/www/html/
+  156  sudo restorecon -v /var/www/html/index.html
+  157  cd /proc/
+  158  ls
+  159  cat stat 
+  160  stat
+  161  uptime
+  162  vstat
+  163  vmstat
+  164  vmstat -n 4
+  165  vmstat -n 4 -t 0.1
+  166  vmstat -n 4 -t 1
+  167  vmstat -n 4 
+  168  man vmstat 
+  169  vmstat -t 1
+  170  vmstat -t 2
+  171  cd /
+  172  cd ~
+  173  ls
+  174  git status
+  175  git fetch
+  176  git pull
+  177  git branch
+  178  git checkout main
+  179  git log --graph
+  180  git fetch
+  181  git pull
+  182  l
+  183  ls
+  184  history
+  185  history > historyLAMP.txt
